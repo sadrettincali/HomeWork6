@@ -22,6 +22,7 @@ public class LoginStepDefinition {
 
     @When("user log in as a valid user")
     public void user_log_in_as_a_valid_user() {
+
         loginPage.login();
     }
 
@@ -35,7 +36,8 @@ public class LoginStepDefinition {
 
     @When("user log in with wrong credential")
     public void user_log_in_with_wrong_credential() {
-       loginPage.login2("xxx","yyy");
+
+        loginPage.login2("xxx","yyy");
     }
 
     @Then("user should verify warning message")

@@ -10,10 +10,10 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/zerobank/stepdefinitions",
         dryRun = false,
-        tags= "",
+        tags= "@Savings",
         plugin = {
                 "html:target/default-report",
-                "json:target/cucumber1.json",
+                "json:target/cucumber.json",
                 "rerun:target/rerun.txt"
         }
 
