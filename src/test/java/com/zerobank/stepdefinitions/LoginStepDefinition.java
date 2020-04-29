@@ -41,7 +41,7 @@ public class LoginStepDefinition {
     @Then("user should verify warning message")
     public void user_should_verify_warning_message() {
         String expected= "Login and/or password are wrong.";
-        String actual= loginPage.getWarning_message().getText();
+        String actual= loginPage.getWarning_message().getText().trim();
         System.out.println("actual = " + actual);
         Assert.assertEquals(expected,actual);
     }
