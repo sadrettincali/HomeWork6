@@ -8,4 +8,7 @@ Feature: Login
     Then user should verify page title as a Zero - Account Summary
 
 
-
+  Scenario: Login to application with wrong credential
+    Given user in the login page
+    When user log in with wrong credential
+    Then user should verify warning message

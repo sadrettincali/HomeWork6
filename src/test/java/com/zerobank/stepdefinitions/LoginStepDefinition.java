@@ -32,14 +32,15 @@ public class LoginStepDefinition {
         Assert.assertEquals(expectedTitle,actualTitle);
     }
 
-    @When("user log in as a invalid user")
-    public void user_log_in_as_a_invalid_user() {
-      loginPage.login2("xxx","yyy");
+
+    @When("user log in with wrong credential")
+    public void user_log_in_with_wrong_credential() {
+       loginPage.login2("xxx","yyy");
     }
 
-    @Then("user should verify the warning message")
-    public void user_should_verify_the_warning_message() {
-        String expected="Login and/or password are wrong.";
+    @Then("user should verify warning message")
+    public void user_should_verify_warning_message() {
+        String expected= "Login and/or password are wrong.";
         String actual= loginPage.getWarning_message().getText();
         System.out.println("actual = " + actual);
         Assert.assertEquals(expected,actual);
