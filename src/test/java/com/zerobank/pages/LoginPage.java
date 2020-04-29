@@ -36,7 +36,7 @@ public class LoginPage extends PageBase {
         String URL = ConfigurationReader.getProperty("URL");
         Driver.getDriver().get(URL);
         login.click();
-        BrowserUtilities.wait(2);
+        BrowserUtilities.wait(1);
         username.sendKeys(ConfigurationReader.getProperty("username"));
         password.sendKeys(ConfigurationReader.getProperty("password"), Keys.ENTER);
         BrowserUtilities.waitForPageToLoad(10);
