@@ -2,6 +2,8 @@ package com.zerobank.stepdefinitions;
 
 import com.zerobank.pages.FindTransactionsPage;
 import com.zerobank.pages.LoginPage;
+import com.zerobank.utilities.BrowserUtilities;
+import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.*;
 
 public class FindTransactionsStepDefinition {
@@ -46,6 +48,7 @@ public class FindTransactionsStepDefinition {
     @When("the user enters description “ONLINE”")
     public void the_user_enters_description_ONLINE() {
         findTransactionsPage.setDescription("ONLINE");
+        BrowserUtilities.wait(1);
     }
 
     @Then("results table should only show descriptions containing “ONLINE”")
@@ -55,7 +58,11 @@ public class FindTransactionsStepDefinition {
 
     @When("the user enters description “OFFICE”")
     public void the_user_enters_description_OFFICE() {
+        Driver.getDriver().navigate().refresh();
+        BrowserUtilities.wait(2);
+        findTransactionsPage.clickToFindTransaction();
         findTransactionsPage.setDescription("OFFICE");
+        BrowserUtilities.wait(1);
     }
 
     @Then("results table should only show descriptions containing “OFFICE”")
@@ -65,6 +72,12 @@ public class FindTransactionsStepDefinition {
 
     @Then("results table should not show descriptions containing “OFFICE”")
     public void results_table_should_not_show_descriptions_containing_OFFICE() {
-
+        Driver.getDriver().navigate().refresh();
+        BrowserUtilities.wait(2);
+        findTransactionsPage.clickToFindTransaction();
+        findTransactionsPage.listOfDescriptions("");
+        findTransactionsPage.defaultList("OFFICE");
+        BrowserUtilities.wait(1);
     }
+
 }

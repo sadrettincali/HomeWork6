@@ -35,6 +35,13 @@ public class FindTransactionsPage extends PageBase {
         }
     }
 
+    public void defaultList(String str2){
+        for (WebElement onlineDescription : onlineDescriptions) {
+            String str= onlineDescription.getText();
+            Assert.assertFalse(str.contains(str2));
+        }
+    }
+
     public void setDescription(String str){
         description.sendKeys(str);
     }
@@ -44,17 +51,12 @@ public class FindTransactionsPage extends PageBase {
         BrowserUtilities.wait(1);
     }
 
-    public void enterDate(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6) {
-        String dateFromStr=""+int1 + "-" + int2 + "-" + int3;
-        String dateToStr=""+int4 + "-" + int5 + "-" + int6;
-        dateFrom.sendKeys(dateFromStr);
-        dateTo.sendKeys(dateToStr);
-
-    }
+//    public void enterDate(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6) {
+//
+//    }
 
     public void clicksOnFind() {
         click.click();
     }
-
 
 }
