@@ -23,8 +23,7 @@ public class FindTransactionsStepDefinition {
     }
 
     @When("clicks search")
-    public void clicks_search()
-    {
+    public void clicks_search() {
         findTransactionsPage.clicksOnFind();
     }
 
@@ -79,5 +78,46 @@ public class FindTransactionsStepDefinition {
         findTransactionsPage.defaultList("OFFICE");
         BrowserUtilities.wait(1);
     }
+
+    @When("the user enters description “online”")
+    public void the_user_enters_description_online() {
+        Driver.getDriver().navigate().refresh();
+        BrowserUtilities.wait(2);
+        findTransactionsPage.clickToFindTransaction();
+        findTransactionsPage.setDescription("online");
+        BrowserUtilities.wait(1);
+    }
+
+    @Then("results table should show at least one result under Deposit")
+    public void results_table_should_show_at_least_one_result_under_Deposit() {
+        findTransactionsPage.checkDeposits();
+    }
+
+    @Then("results table should show at least one result under Withdrawal")
+    public void results_table_should_show_at_least_one_result_under_Withdrawal() {
+        findTransactionsPage.checkWithdrawals();
+    }
+
+    @When("user selects type “Deposit”")
+    public void user_selects_type_Deposit() {
+        findTransactionsPage.selectDropdown("Deposit");
+        BrowserUtilities.wait(1);
+    }
+
+    @Then("results table should show no result under Withdrawal")
+    public void results_table_should_show_no_result_under_Withdrawal() {
+        findTransactionsPage.checkWithdrawals();
+    }
+
+    @When("user selects type “Withdrawal”")
+    public void user_selects_type_Withdrawal() {
+        findTransactionsPage.selectDropdown("Withdrawal");
+    }
+
+    @Then("results table should show no result under Deposit")
+    public void results_table_should_show_no_result_under_Deposit() {
+       findTransactionsPage.checkDeposits();
+    }
+
 
 }

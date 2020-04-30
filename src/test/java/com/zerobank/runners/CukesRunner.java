@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         glue = "com/zerobank/stepdefinitions",
         dryRun = false,
         strict = true,
-        tags = "@SearchDescription",
+        tags = "@Type",
         plugin = {
                 "html:target/default-report",
                 "json:target/cucumber.json",

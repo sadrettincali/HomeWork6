@@ -5,6 +5,7 @@ import com.zerobank.utilities.BrowserUtilities;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -27,6 +28,65 @@ public class FindTransactionsPage extends PageBase {
 
     @FindBy(xpath = "(//table//tbody)[2]/tr/td[2]")
     public List<WebElement> onlineDescriptions;
+
+    @FindBy(xpath = "(//table//tbody)[2]/tr/td[3]")
+    public List<WebElement> depositLists;
+
+    @FindBy(xpath = "(//table//tbody)[2]/tr/td[4]")
+    public List<WebElement> withdrawalLists;
+
+    @FindBy(id = "aa_type")
+    public WebElement typeDropdown;
+
+    public void checkDepositLists(){
+          boolean bln=false;
+        for (WebElement depositList : depositLists) {
+            if (depositList.getText().isEmpty()){
+                bln=true;
+            }
+        }
+        Assert.assertTrue(bln);
+    }
+
+
+    public void checkWithdrawalLists(){
+          boolean bln=false;
+        for (WebElement withdrawalList : withdrawalLists) {
+            if (withdrawalList.getText().isEmpty()){
+                bln=true;
+            }
+        }
+        Assert.assertTrue(bln);
+    }
+
+
+    public void selectDropdown(String str){
+        Select select=new Select(typeDropdown);
+        select.selectByVisibleText(str);
+    }
+
+    public void checkWithdrawals(){
+        boolean bln=false;
+        for (WebElement withdrawalList : withdrawalLists) {
+            if (!withdrawalList.getText().isEmpty()){
+                bln=true;
+            }
+        }
+        Assert.assertTrue(bln);
+    }
+
+    public void checkDeposits(){
+        boolean bln=false;
+        for (WebElement depositList : depositLists) {
+            if (!depositList.getText().isEmpty()){
+                bln=true;
+            }
+        }
+        Assert.assertTrue(bln);
+    }
+
+
+
 
     public void listOfDescriptions(String str2){
         for (WebElement onlineDescription : onlineDescriptions) {
@@ -57,6 +117,7 @@ public class FindTransactionsPage extends PageBase {
 
     public void clicksOnFind() {
         click.click();
+        BrowserUtilities.wait(1);
     }
 
 }
