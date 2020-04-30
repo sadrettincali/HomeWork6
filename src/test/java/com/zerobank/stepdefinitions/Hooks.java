@@ -16,8 +16,6 @@ public class Hooks {
     }
 
 
-
-
     @After
     public void tearDown(Scenario scenario) {
         //how to check if scenario failed
