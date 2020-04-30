@@ -28,15 +28,15 @@ public class FindTransactionsPage extends PageBase {
     @FindBy(xpath = "(//table//tbody)[2]/tr/td[2]")
     public List<WebElement> onlineDescriptions;
 
-    public void listOfDescriptions(){
+    public void listOfDescriptions(String str2){
         for (WebElement onlineDescription : onlineDescriptions) {
             String str= onlineDescription.getText();
-            Assert.assertTrue(str.contains("ONLINE"));
+            Assert.assertTrue(str.contains(str2));
         }
     }
 
-    public void setDescription(){
-        description.sendKeys("ONLINE");
+    public void setDescription(String str){
+        description.sendKeys(str);
     }
 
     public void clickToFindTransaction() {

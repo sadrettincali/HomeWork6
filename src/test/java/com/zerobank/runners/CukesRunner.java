@@ -9,9 +9,9 @@ import org.junit.runner.RunWith;
 
         features = "src/test/resources/features",
         glue = "com/zerobank/stepdefinitions",
-        dryRun = false,
+        dryRun = true,
         strict = false,
-        tags = "@SearchDescription",
+        tags = "",
         plugin = {
                 "html:target/default-report",
                 "json:target/cucumber.json",
