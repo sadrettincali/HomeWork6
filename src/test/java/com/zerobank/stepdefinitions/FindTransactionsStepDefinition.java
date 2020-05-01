@@ -89,7 +89,8 @@ public class FindTransactionsStepDefinition {
     }
 
     @Then("results table should show at least one result under Deposit")
-    public void results_table_should_show_at_least_one_result_under_Deposit() {
+    public void results_table_should_show_at_least_one_result_under_Deposit()
+    {
         findTransactionsPage.checkDeposits();
     }
 
@@ -105,18 +106,21 @@ public class FindTransactionsStepDefinition {
     }
 
     @Then("results table should show no result under Withdrawal")
-    public void results_table_should_show_no_result_under_Withdrawal() {
-        findTransactionsPage.checkWithdrawals();
+    public void results_table_should_show_no_result_under_Withdrawal()
+    {
+        findTransactionsPage.checkWithdrawalLists();
     }
 
     @When("user selects type “Withdrawal”")
-    public void user_selects_type_Withdrawal() {
+    public void user_selects_type_Withdrawal()
+    {
         findTransactionsPage.selectDropdown("Withdrawal");
     }
 
     @Then("results table should show no result under Deposit")
-    public void results_table_should_show_no_result_under_Deposit() {
-       findTransactionsPage.checkDeposits();
+    public void results_table_should_show_no_result_under_Deposit()
+    {
+        findTransactionsPage.checkDepositLists();
     }
 
 
